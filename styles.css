@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: pink; /* Pink background */
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+}
+
+
+
+.container {
+    flex-grow: 50; /* Take up available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+}
+
+.heart {
+    position: relative;
+    width: 120px; /* Smaller heart */
+    height: 120px;
+    background-color: red;
+    margin-bottom: 4rem; /* Space between heart and text below */
+    transform: rotate(-45deg); /* Rotating the heart */
+    opacity: 0;
+    animation: drawHeart 3s ease-out forwards; /* Heart drawing animation */
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 120px; /* Adjusted to match smaller heart size */
+    height: 120px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+.heart-text {
+    margin-top: 3rem; /* Space between heart and text */
+    font-size: 1.2rem; /* Smaller font size for the text */
+    font-weight: bold;
+    color: blue; /* Blue text color */
+}
+
+@keyframes drawHeart {
+    0% {
+        transform: scale(0) rotate(-45deg); /* Starting from a smaller size */
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(-45deg); /* Full size with the correct angle */
+        opacity: 1;
+    }
+}
